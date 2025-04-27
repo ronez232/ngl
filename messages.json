@@ -1,0 +1,19 @@
+[
+  {
+    "message": "kim jestes\n",
+    "ip": "::ffff:127.0.0.1",
+    "time": "2025-04-27T15:11:46.173Z"
+  },
+  {
+    "message": "no elo elo\n",
+    "ip": "::ffff:127.0.0.1",
+    "location": "Nieznane miasto, Nieznany region, Nieznany kraj",
+    "time": "2025-04-27T15:16:25.465Z"
+  },
+  {
+    "message": "la la la\n",
+    "ip": "127.0.0.1",
+    "location": "Nieznane miasto, Nieznany region, Nieznany kraj",
+    "time": "2025-04-27T15:21:01.461Z"
+  }
+]

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel admina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Panel administratora</h1>
+  <input type="text" id="username" placeholder="Login"><br><br>
+  <input type="password" id="password" placeholder="Hasło"><br><br>
+  <button onclick="login()">Zaloguj</button>
+  <div id="messages" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+function login() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  fetch('/admin/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, password })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      const messagesDiv = document.getElementById('messages');
+      messagesDiv.innerHTML = '<h2>Wiadomości:</h2>';
+      data.messages.forEach(m => {
+        messagesDiv.innerHTML += `<p><b>${m.time}</b><br>IP: ${m.ip}<br>Wiadomość: ${m.message}</p><hr>`;
+      });
+    } else {
+      alert('Błąd logowania');
+    }
+  });
+}
+</script>
+</body>
+</html>
